@@ -84,8 +84,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         
         if (annotationView == nil) {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-            // annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
             annotationView!.canShowCallout = true
         }else{
             annotationView?.annotation = annotation
@@ -102,7 +101,6 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         let _ = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        annotationView?.image = UIImage(cgImage: photoAnnotationDetails.photo as! CGImage, scale: 0.5, orientation: UIImageOrientation.up)
         annotationView?.leftCalloutAccessoryView = resizeRenderImageView
         let btn = UIButton(type: .detailDisclosure)
         annotationView?.rightCalloutAccessoryView = btn
